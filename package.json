@@ -17,6 +17,8 @@
     "react-dom": "^0.14.0",
     "react-redux": "^3.1.0",
     "redux": "^3.0.2",
+    "redux-rx": "^0.4.0",
+    "rx": "^4.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }

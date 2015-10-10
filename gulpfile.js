@@ -11,7 +11,8 @@ gulp.task('lib', function() {
 	b = browserify({
 		entries: 'src/lib/app.js',
 		debug: true,
-		transform: [ babelify ]
+		transform: [ babelify ],
+		paths: [ 'node_modules', 'src/lib' ]
 	})
 	return b.bundle()
 		.pipe(source('app.js'))
