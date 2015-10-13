@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
 import { testAction } from 'actions';
-import app from 'reduxtest';
+import reducer from 'reducers';
 
-let store = createStore(app);
+let store = createStore(reducer);
 
 export default store;
 
@@ -14,4 +14,3 @@ let unsubscribe = store.subscribe(() =>
 
 store.dispatch(testAction("Hello, World!"));
 
-unsubscribe();

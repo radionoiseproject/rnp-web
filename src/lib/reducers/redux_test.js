@@ -10,8 +10,6 @@ function testText(state = "", action) {
 	}
 }
 
-const app = combineReducers({
+export default combineReducers({
 	testText
 });
-
-export default app;

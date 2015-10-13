@@ -35,7 +35,7 @@ App.propTypes = {
 
 function select(state) {
 	return {
-		testText: state.testText
+		testText: state.reduxTest.testText
 	};
 }
 
