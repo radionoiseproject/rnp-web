@@ -7,8 +7,19 @@ HTML and JavaScript. It is intended to be hosted from a static web server.
 To Build
 --------
 
-At some point we'll probably have a build system here that fetches js libraries,
-builds stylesheets, etc. Until then there's nothing to do here.
+Make sure you have npm (node.js) and gulp installed on your system.
+
+Install the local npm packages to get the build system and deps:
+
+```
+npm install
+```
+
+Then use gulp to build the browser libraries and css:
+
+```
+gulp
+```
 
 To Serve
 --------
