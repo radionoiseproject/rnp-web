@@ -11,14 +11,16 @@ gulp.task('lib', function() {
 	b = browserify({
 		entries: 'src/lib/app.js',
 		debug: true,
-		transform: [ babelify ],
+		transform: [
+			["babelify", { presets: ["es2015", "react"]}]
+		],
 		paths: [ 'node_modules', 'src/lib' ]
 	})
 	return b.bundle()
 		.pipe(source('app.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
-		//.pipe(uglify())
+		.pipe(uglify())
 		.on('error', gutil.log)
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('pub/lib'));
