@@ -7,6 +7,7 @@ var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
+var gzip = require('gulp-gzip');
 
 gulp.task('lib', function() {
 	b = browserify({
@@ -48,3 +49,20 @@ gulp.task('eunomia', function() {
 
 gulp.task('fonts', ['eunomia']);
 gulp.task('default', ['lib', 'style', 'fonts']);
+
+gulp.task('static-gzip-lib', ['lib'], function() {
+	gulp.src(['pub/lib/*.js', 'pub/lib/*.map'])
+		.pipe(gzip())
+		.pipe(gulp.dest('pub/lib'));
+});
+gulp.task('static-gzip-style', ['style'], function() {
+	gulp.src(['pub/style/*.css', 'pub/style/*.map'])
+		.pipe(gzip())
+		.pipe(gulp.dest('pub/style'));
+});
+gulp.task('static-gzip-fonts', ['fonts'], function() {
+	gulp.src(['pub/fonts/*.otf'])
+		.pipe(gzip())
+		.pipe(gulp.dest('pub/fonts'));
+});
+gulp.task('static-gzip', ['static-gzip-lib', 'static-gzip-style', 'static-gzip-fonts'])
