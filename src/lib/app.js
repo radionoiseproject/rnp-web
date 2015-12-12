@@ -25,7 +25,16 @@ class App extends Component {
 	render() {
 		const { dispatch, testText } = this.props;
 		return (
-			<TestText text={testText}/>
+			<div className="vertical grid-frame">
+				<div className="shrink collapse grid-content">
+					<div className="primary title-bar">
+						<span className="title center">Radio Noise Project</span>
+					</div>
+				</div>
+				<div className="grid-content">
+					<TestText text={testText}/>
+				</div>
+			</div>
 		);
 	}
 }
