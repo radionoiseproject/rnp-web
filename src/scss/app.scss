@@ -1,38 +1,28 @@
-// Solarized colors, for use in various places
-$base03:  #002b36;
-$base02:  #073642;
-$base01:  #586e75;
-$base00:  #657b83;
-$base0:   #839496;
-$base1:   #93a1a1;
-$base2:   #eee8d5;
-$base3:   #fdf6e3;
-$yellow:  #b58900;
-$orange:  #cb4b16;
-$red:     #dc322f;
-$magenta: #d33682;
-$violet:  #6c71c4;
-$blue:    #268bd2;
-$cyan:    #2aa198;
-$green:   #859900;
+// Colors, for use in various places
+$light-bg: #fff;
+$normal-fg: #333;
+$electric-green: #3f6;
+$electric-blue: #36f;
+$dark-bg: #034;
+$light-fg: #fff;
 
 // Title font
 @import "eunomia-font";
 
-$body-background: $base3;
-$body-font-color: $base00;
+$body-background: $light-bg;
+$body-font-color: $normal-fg;
 
-$primary-color: $magenta;
-$secondary-color: $magenta;
+$primary-color: $electric-blue;
+$secondary-color: $electric-green;
 
-$header-font-color: $base01;
+$header-font-color: $normal-fg;
 
 @import "foundation";
 
 .title-bar {
 	&.primary {
-		@include title-bar-style($base03, $base0);
-		a, a:hover { color: $base0; }
+		@include title-bar-style($dark-bg, $electric-green);
+		a, a:hover { color: $electric-green; }
 		.title {
 			font-family: "Eunomia", "Impact";
 		}
