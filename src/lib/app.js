@@ -2,30 +2,16 @@ import Config from 'config'
 import React, { findDOMNode, Component, PropTypes } from 'react'
 import { connect, Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { testAction } from 'actions';
 import { serverInitialize } from 'actions/server_connection';
+import ServerConnection from 'components/server_connection';
 
 import Store from 'store'
 
-window.setTimeout(function() {
-	Store.dispatch(testAction("Whee!"));
-}, 3000);
-Store.dispatch(serverInitialize("ws://localhost:8080/rnp"));
-
-class TestText extends Component {
-	render() {
-		return (
-			<h2>{this.props.text}</h2>
-		);
-	}
-}
-TestText.propTypes = {
-	text: PropTypes.string.isRequired
-}
+Store.dispatch(serverInitialize(Config.server));
 
 class App extends Component {
 	render() {
-		const { dispatch, testText } = this.props;
+		const { dispatch, testText, serverConnection } = this.props;
 		return (
 			<div className="vertical grid-frame">
 				<div className="shrink collapse grid-content">
@@ -34,19 +20,19 @@ class App extends Component {
 					</div>
 				</div>
 				<div className="grid-content">
-					<TestText text={testText}/>
+					<ServerConnection serverConnection={serverConnection}/>
 				</div>
 			</div>
 		);
 	}
 }
 App.propTypes = {
-	testText: PropTypes.string.isRequired
+	serverConnection: ServerConnection.propTypes.serverConnection
 };
 
 function select(state) {
 	return {
-		testText: state.reduxTest.testText
+		serverConnection: state.serverConnection
 	};
 }
 

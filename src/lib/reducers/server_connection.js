@@ -59,16 +59,3 @@ export default function reducer(state = initialState, action) {
       return state;
   }
 }
-function connected(state = false, action) {
-	switch (action.type) {
-	case SERVER_CONNECTING:
-		return false;
-	case SERVER_CONNECTED:
-		if (action.error)
-			return false;
-		else
-			return true;
-	default:
-		return state;
-	}
-}

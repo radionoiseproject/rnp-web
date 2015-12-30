@@ -1,3 +1,6 @@
+// Start off with a browser normalize
+@import "normalize";
+
 // Colors, for use in various places
 $light-bg: #ffe;
 $normal-fg: #333;
@@ -9,19 +12,8 @@ $light-fg: #fff;
 // Title font
 @import "eunomia-font";
 
-$body-background: $light-bg;
-$body-font-color: $normal-fg;
-
-$primary-color: $electric-blue;
-$secondary-color: $electric-green;
-
-$header-font-color: $normal-fg;
-
-@import "foundation";
-
 .title-bar {
 	&.primary {
-		@include title-bar-style($dark-bg, $electric-green);
 		a, a:hover { color: $electric-green; }
 		.title {
 			font-family: "Eunomia", "Impact";

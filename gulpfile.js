@@ -32,7 +32,7 @@ gulp.task('style', function() {
 	gulp.src('src/scss/app.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-			includePaths: [ 'node_modules/foundation-apps/scss/']
+			includePaths: [ 'node_modules/normalize.css']
 		}))
 		// the sass plugin sourcemaps suck for included files, so write
 		// and reload them to let the sourcemaps plugin fix them up.
