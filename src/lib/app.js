@@ -3,12 +3,14 @@ import React, { findDOMNode, Component, PropTypes } from 'react'
 import { connect, Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { testAction } from 'actions';
+import { serverInitialize } from 'actions/server_connection';
 
 import Store from 'store'
 
 window.setTimeout(function() {
 	Store.dispatch(testAction("Whee!"));
 }, 3000);
+Store.dispatch(serverInitialize("ws://localhost:8080/rnp"));
 
 class TestText extends Component {
 	render() {
